@@ -1,0 +1,141 @@
+<div class="container">
+  <div class="nav-side-menu">
+    <div class="brand">Menu Inicial</div>
+    <i class="fa fa-bars fa-2x toggle-btn" data-toggle="collapse" data-target="#menu-content"></i>
+
+    <div class="menu-list">
+      <ul id="menu-content" class="menu-content collapse out">
+        <li>
+          <a routerLinkActive="true" [routerLink]="['/principal']"><i class="glyphicon glyphicon-home"></i>Inicio</a>
+        </li>
+
+        <!-- ************************ Años ********************** -->
+        <template let-ano ngFor [ngForOf]="persistence.menu">
+          <li data-toggle="collapse" attr.data-target="#{{ano.mesesID}}">
+            <a><i class="fa fa-calendar-o fa-lg"></i>{{ano.year}}<span class="arrow"></span></a>
+          </li>
+          <!-- *********************** Meses *************************** -->
+          <ul style="margin-left: 5px" class="collapse" attr.id="{{ano.mesesID}}">
+            <template let-mes ngFor [ngForOf]="ano.meses">
+              <li data-toggle="collapse" attr.data-target="#{{mes.festivalCollapseID}}" class="sub-menu active">
+                <a>
+                  <i class="fa fa-calendar fa-lg"></i>{{mes.name}}<span class="arrow"></span>
+                </a>
+              </li>
+              <ul style="margin-left: 10px" class="sub-menu collapse" attr.id="{{mes.festivalCollapseID}}">
+
+                <!-- **************** Festivales *************** -->
+
+                <template let-fest ngFor [ngForOf]="mes.festivales">
+                  <li (click)="onEventoSelected(fest)" data-toggle="collapse"
+                      attr.data-target="#{{fest.medioCollapseID}}" style="cursor:pointer;">
+                    <a>
+                      <i class="glyphicon glyphicon-briefcase"></i><span>{{fest.nombre}}</span>
+                      <span style="float: right" class="badge">{{fest.totalMedios}}</span>
+                    </a>
+                  </li>
+                  <ul style="margin-left: 15px" class="collapse" attr.id="{{fest.medioCollapseID}}">
+
+                    <!-- ************* Tabloides *************** -->
+
+                    <li class="active" *ngIf="fest.tabloides.length > 0" data-toggle="collapse"
+                        attr.data-target="#{{fest.idMenuTab}}">
+                      <a><i class="glyphicon glyphicon-calendar"></i>Tabloides<span class="arrow"></span></a>
+                    </li>
+                    <ul style="margin-left: 20px" class="collapse" attr.id="{{fest.idMenuTab}}">
+                      <template let-tabl ngFor [ngForOf]="fest.tabloides">
+                        <li>
+                          <a (click)="onMedioSelected(tabl, fest)"><i class="glyphicon glyphicon-hand-right"></i>
+                            <span>{{tabl.nombre}}</span>
+                          </a>
+                        </li>
+                      </template>
+                    </ul>
+
+
+                    <!-- ************** Dipticos *************** -->
+
+                    <li class="active" *ngIf="fest.dipticos.length > 0" data-toggle="collapse"
+                        attr.data-target="#{{fest.idMenuDP}}">
+                      <a><i class="glyphicon glyphicon-calendar"></i>Dipticos<span class="arrow"></span></a>
+                    </li>
+                    <ul style="margin-left: 20px" class="sub-menu collapse" attr.id="{{fest.idMenuDP}}">
+                      <template let-dip ngFor [ngForOf]="fest.dipticos">
+                        <li>
+                          <a (click)="onMedioSelected(dip, fest)"><i class="glyphicon glyphicon-hand-right"></i>{{dip.nombre}}</a>
+                        </li>
+                      </template>
+                    </ul>
+
+                    <!-- ************** Volantes *************** -->
+
+                    <li class="active" *ngIf="fest.volantes.length > 0" data-toggle="collapse"
+                        attr.data-target="#{{fest.idMenuVol}}">
+                      <a><i class="glyphicon glyphicon-calendar"></i>Volantes<span class="arrow"></span></a>
+                    </li>
+                    <ul style="margin-left: 20px" class="sub-menu collapse" attr.id="{{fest.idMenuVol}}">
+                      <template let-volante ngFor [ngForOf]="fest.volantes">
+                        <li>
+                          <a (click)="onMedioSelected(volante,fest)"><i class="glyphicon glyphicon-hand-right"></i>{{volante.nombre}}</a>
+                        </li>
+                      </template>
+                    </ul>
+
+                    <!-- ************** Prensa *************** -->
+
+                    <li class="active" *ngIf="fest.prensa.length > 0" data-toggle="collapse"
+                        attr.data-target="#{{fest.idMenuPR}}">
+                      <a><i class="fa fa-newspaper-o fa-lg"></i>Prensa<span class="arrow"></span></a>
+                    </li>
+                    <ul style="margin-left: 20px" class="sub-menu collapse" attr.id="{{fest.idMenuPR}}">
+                      <template let-prn ngFor [ngForOf]="fest.prensa">
+                        <li>
+                          <a (click)="onMedioSelected(prn, fest)"><i class="glyphicon glyphicon-hand-right"></i>{{prn.nombre}}</a>
+                        </li>
+                      </template>
+                    </ul>
+
+                    <!-- ************** RadioTv *************** -->
+                    <li class="active" *ngIf="fest.radiotv.length > 0" data-toggle="collapse"
+                        attr.data-target="#{{fest.idMenuRad}}">
+                      <a><i class="glyphicon glyphicon-facetime-video"></i>Radio Television<span
+                        class="arrow"></span></a>
+                    </li>
+                    <ul style="margin-left: 20px" class="sub-menu collapse" attr.id="{{fest.idMenuRad}}">
+                      <template let-radtv ngFor [ngForOf]="fest.radiotv">
+                        <li>
+                          <a (click)="onMedioSelected(radtv, fets)"><i class="glyphicon glyphicon-hand-right"></i>{{radtv.nombre}}</a>
+                        </li>
+                      </template>
+                    </ul>
+                  </ul>
+                </template>
+              </ul>
+            </template>
+          </ul>
+        </template>
+
+        <!-- ********************** FIN MENU DINAMICO ******************** -->
+
+        <li>
+          <a *ngIf="userActionService.userCanAction(userActionService.getAdmFestAction())" (click)="onNuevoEvento()">
+            <i class="fa fa-plus fa-lg"></i> Nuevo Festival
+          </a>
+        </li>
+
+        <li>
+          <a *ngIf="userActionService.userCanAction(userActionService.getAdmUsersAction())" (click)="onAdmUsers()">
+            <i class="fa fa-users fa-lg"></i>
+            Usuarios
+          </a>
+        </li>
+
+        <li (click)="onCloseSession()">
+          <a href="/">
+            <i class="glyphicon glyphicon-log-out"></i> Cerrar Sesion
+          </a>
+        </li>
+      </ul>
+    </div>
+  </div>
+</div>

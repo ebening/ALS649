@@ -1,0 +1,19 @@
+<div class="container" style="width: 99.5%; height: 100%;">
+  <tabset >
+    <tab *ngIf="permitTabAdmEventos()" [heading]="etiquetaService.TAB_EVENTO" (select)="doOnTabEvento()" (deselect)="doOnTabEventoOut()" >
+      <eventoarq #eventoarq ></eventoarq>
+    </tab>
+    <tab *ngIf="permitTabAdmMedios()" [heading]="'Medios'">
+      <tabmedios></tabmedios>
+    </tab>
+    <tab *ngIf="permitTabAdmEspacios() && persistence.medioSelected != null" [heading]="'Adm Espacios'" >
+      <admespacios></admespacios>
+    </tab>
+    <tab *ngIf="permitTabEspacios()" [heading]="'Espacios'" (select)="doOnTabMecanica(this)" (deselect)="donOnTabMecanicaOut()" >
+      <arqmecanica></arqmecanica>
+    </tab>
+    <tab *ngIf="permitTabOfertas()" [heading]="'Ofertas'">
+      <ofertasView></ofertasView>
+    </tab>
+  </tabset>
+</div>

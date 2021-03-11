@@ -1,0 +1,85 @@
+.container{
+    font-family: fontNormal;
+}
+
+button{
+  width: 100%;
+}
+
+/********************Grid grupo********************/
+.grupogrid1{
+  float: right;
+  width: 100%;
+  height: 200px;
+  overflow: auto;
+    /*border:1px solid black;*/
+}
+
+.grupogrid1 table, .grupogrid1 table td, .grupogrid1 table tr {
+	padding:0px;
+	border-spacing: 0px;
+}
+
+.grupogrid1 table {
+	border-radius:5px;
+	font-family: fontNormal;
+  margin-left: 5%;
+	width: 90%;
+}
+
+.grupogrid1 table td {
+	padding:2px;
+}
+
+.grupogrid1 table tr:first-child td:first-child {
+	border-radius:5px 0px 0px 0px;
+}
+
+.grupogrid1 table tr:first-child td:last-child {
+	border-radius:0px 5px 0px 0px;
+}
+
+.grupogrid1 table tr:last-child td:first-child {
+	border-radius:0px 0px 0px 5px;
+}
+
+.grupogrid1 table tr:last-child td:last-child {
+	border-radius:0px 0px 5px 0px;
+}
+
+.grupogrid1 table td:not(:last-child) {
+	border-right:1px #666 solid;
+}
+
+
+.grupogrid1 table tr:nth-child(2n) {
+	background: #d0eec8;
+}
+
+.grupogrid1 table tr:nth-child(2n+1){
+	background: #f5f8f8;
+}
+
+.grupogrid1 table.header tr:not(:first-child):hover, .grupogrid1 table:not(.header) tr:hover {
+	background: #c3bfbf;
+}
+
+.grupogrid1 table:not(.header) tr {
+	text-align: left;
+}
+
+.grupogrid1 table.header tr:first-child {
+	font-weight: bold;
+	color:#fff;
+	background-color: #827f7e;
+	border-bottom:1px #000 solid;
+	text-align:center;
+}
+
+.grupogrid1 table.header tr:nth-child(n+2) {
+	text-align: center;
+}
+
+
+
+/********************Fin Grid grupo********************/

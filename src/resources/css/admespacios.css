@@ -1,0 +1,36 @@
+/**
+**
+**
+**
+ */
+.container{
+    position: relative;
+    height: 100%;
+  /*  border: 2px solid red; */
+}
+
+.panel-body {
+    height: 430px;
+    overflow: auto;
+}
+
+.pageTitle {
+    font-size: 1.5em;
+    margin-left: 5px;
+    margin-right: 5px;
+}
+
+.img-thumbnail {
+    height: 100px;
+    width: 100px;
+}
+
+.col-md-10 {
+    margin-top: 10px;
+}
+
+.dragula {
+    cursor: -webkit-grab;
+    cursor: -moz-grab;
+    border: 1px dashed lightblue
+}

@@ -1,0 +1,44 @@
+<alertModal [idBttn]="'openEventoAlert'" [idmodal]="'eventoAlert'" [danger]="alertDanger" [info]="alertInfo"
+            [success]="alertSucces" [warning]="alertWarn" [mensaje]="mensajeModal" [titulo]="tituloModal"></alertModal>
+<div class="container">
+  <div class="row">  <!-- row  1 -->
+    <div class="col-md-4">  <!-- Comulumna  1 -->
+      <div class="panel panel-default" style="margin-top: 5px;">
+        <div class="panel-heading">
+          Datos Generales
+        </div>
+        <div class="panel-body">
+          <div class="col-md-12">
+              <input type="text" placeholder="Nombre Festival" [(ngModel)]="evento.nombre" class="input-sm">
+
+          </div>
+          <div style="margin-top: 5px" class="col-md-12">
+            <input type="date" [(ngModel)]="evento.fechaInicio">
+          </div>
+          <div style="margin-top: 5px" class="col-md-12">
+            <input type="date" [(ngModel)]="evento.fechaFin">
+          </div>
+          <div style="margin-top: 5px" class="col-md-12">
+            <div class="col-md-6">
+              <button [disabled]="evento.nombre == ''" type="button" class="btn btn-danger">
+                <span class="fa fa-remove"></span>
+                Eliminar
+              </button>
+            </div>
+            <div class="col-md-6">
+              <button (click)="onSaveButton()" [disabled]="evento.nombre == '' && evento.fechaInicio == null && evento.fechaFin == null"
+                      type="button" class="btn btn-primary">
+                <span class="fa fa-check"></span>
+                Grabar
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>   <!--Fin  Comulumna  1 -->
+    <div class="col-md-12">
+
+    </div>
+  </div> <!-- row  1 -->
+</div>
+

@@ -1,0 +1,121 @@
+<div style="height: 100%;margin-top: 10px" class="container-fluid">
+  <div class="row" style="height: 100%">
+    <div style="padding: 0px" class="col-md-12">
+      <div class="col-md-2">
+        <ss-multiselect-dropdown [options]="tipoMedios"
+                                 [settings]="selectSettingsOne"
+                                 [texts]="selectTexts"
+                                 [customTitle]="'Tipo Medio'"
+                                 [(ngModel)]="tipoMedioSelected"
+                                 (ngModelChange)="onTipoSelected()">
+
+        </ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-6">
+        <input style="width: 100%;" placeholder="Nombre {{tipo.nombre}}" [(ngModel)]="currentConfig.nombre" type="text">
+      </div>
+      <div class="col-md-4">
+        <div class="col-md-6">
+          Fecha Inicial
+          <input type="date" [(ngModel)]="currentConfig.fechaInit">
+        </div>
+        <div class="col-md-6">
+          Fecha Final
+          <input type="date" [(ngModel)]="currentConfig.fechaFin">
+        </div>
+      </div>
+    </div>
+    <div style="margin-top: 20px; padding: 0px" class="col-md-12">
+      <div class="col-md-2">
+        <ss-multiselect-dropdown
+          [options]="zonasList"
+          [settings]="selectSettingsOne"
+          [texts]="selectTexts"
+          [customTitle]="'Zona'"
+          [(ngModel)]="zonaSelected"
+          (ngModelChange)="onZonaSelected()">
+
+        </ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-2">
+        <ss-multiselect-dropdown [customTitle]="'Página'"
+                                 [options]="hojaList"
+                                 [settings]="selectSettingsOne"
+                                 [texts]="selectTexts"
+                                 [(ngModel)]="hojaSelected">
+
+        </ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-2">
+        <ss-multiselect-dropdown [customTitle]="'Espacio'"
+                                 [options]="espacioList"
+                                 [settings]="selectSettingsOne"
+                                 [texts]="selectTexts"
+                                 [(ngModel)]="espacioSelected"></ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-2">
+        <ss-multiselect-dropdown [customTitle]="etiquetaService.CATEGORIA_ART"
+                                 (ngModelChange)="onCategoSelect()"
+                                 [options]="categoList"
+                                 [settings]="selectSettingsOne"
+                                 [texts]="selectTexts"
+                                 [(ngModel)]="categoriaSelected"></ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-2">
+        <ss-multiselect-dropdown [customTitle]="etiquetaService.SUB_CATEGO_ART"
+                                 [options]="subcategoList"
+                                 [settings]="selectSettingsOne"
+                                 [texts]="selectTexts"
+                                 [(ngModel)]="subcategoSelected">
+
+        </ss-multiselect-dropdown>
+      </div>
+      <div class="col-md-2">
+        <button style="width: 100%" type="button" class="btn btn-success" (click)="asignar()">
+          <span class="glyphicon glyphicon-download-alt"></span>
+          Asignar
+        </button>
+      </div>
+    </div>
+  </div>
+  <div style="margin-top: 10px" class="panel panel-default">
+    <div class="panel-heading">
+      Asignaciones
+    </div>
+    <div style="height: 290px;overflow: auto" class="panel-body">
+      <table class="table table-hover table-striped">
+        <thead>
+        <tr>
+          <th>Página</th>
+          <th>Espacio</th>
+          <th>{{etiquetaService.CATEGORIA_ART}}</th>
+          <th>{{etiquetaService.SUB_CATEGO_ART}}</th>
+        </tr>
+        </thead>
+        <tbody>
+        <template let-esp ngFor [ngForOf]="currentConfig.espacios">
+          <tr style="cursor: pointer" (click)="rowSelect(esp)"
+              [style.background]="esp.isSelected ? 'lightgray' : 'white'">
+            <td>{{esp.hoja == 0 ? 'Portada' : esp.hoja}}</td>
+            <td>{{esp.espacio}}</td>
+            <td>{{esp.categoria.nombre}}</td>
+            <td>{{esp.subcategory.nombre}}</td>
+          </tr>
+        </template>
+        </tbody>
+      </table>
+    </div>
+  </div>
+  <div class="col-md-2 col-md-offset-8">
+    <button style="width: 100%" type="button" class="btn btn-primary" (click)="crearTabDyn()">
+      <span class="glyphicon glyphicon-floppy-save"></span>
+      Grabar
+    </button>
+  </div>
+  <div class="col-md-2">
+    <button (click)="onDelete()" style="width: 100%" type="button" class="btn btn-danger">
+      <span class="glyphicon glyphicon-remove"></span>
+      Eliminar
+    </button>
+  </div>
+</div>

@@ -1,0 +1,91 @@
+<alertModal
+  [idmodal]="modalID"
+  [idBttn]="bttnOpenAlert"
+  [danger]="alertDanger"
+  [info]="alertInfo"
+  [success]="alertSucces"
+  [warning]="alertWarn"
+  [mensaje]="mensajeAlert"
+  [titulo]="tituloAlert">
+</alertModal>
+<div style="width: 100%" class="container">
+  <div class="row">
+    <div style="margin-top: 10px" class="col-md-2">
+      <button type="button" class="btn btn-danger">
+        <span class="glyphicon glyphicon-remove"></span>
+        Eliminar
+      </button>
+    </div>
+    <div class="col-md-12">
+      <div style="margin-top: 10px;" class="panel panel-default">  <!-- Row 3 -->
+        <div class="panel-heading">
+          Articulos
+        </div>
+        <div style="height: 380px;overflow: auto" class="panel-body">
+          <table class="table table-hover table-striped">
+            <thead>
+            <tr>
+              <!-- <th>Componente</th> -->
+
+              <th>Numero</th>
+              <th>Area</th>
+              <th>Grupo Articulos</th>
+              <th>Codigo Oficina</th>
+              <th>Codigo Barras</th>
+              <th>Productos</th>
+              <th>Marca</th>
+              <th>Estilo/Modelo</th>
+              <th>Presentacion</th>
+              <th>Precio Regular</th>
+              <th>Precio Oferta</th>
+              <th>Preciazo Club</th>
+              <th>Vigencia Precio</th>
+              <th>Ejemplo Observaciones</th>
+              <!--  <th>Numero Especial</th> -->
+            </tr>
+            </thead>
+            <tbody>
+            <!--  <template let-pag ngFor [ngForOf]="tableList">
+                <tr>
+                  <td colspan="15">{{pag.nameRow}}</td>
+                </tr> -->
+            <tr *ngFor="let e of persistence.tabEspaciosList">
+              <td>{{e.numero}}</td>
+              <td>{{categoService.getCategoryById(e.area).nombre}}</td>
+              <td>{{subcategoService.getSubCategoById(e.grupoArt).nombre}}</td>
+              <td>{{e.subSeg}}</td>
+              <td>{{e.items[0] == null ? '' : e.items[0].upc}}</td>
+              <td>{{e.items[0] == null ? '' : e.items[0].descripcion}}</td>
+              <td>{{e.items[0] == null ? '' : e.items[0].marca}}</td>
+              <td style="text-align: center">{{e.items[0] == null ? '' : e.items[0].modelo}}</td>
+              <td>{{e.items[0] == null ? '' : e.items[0].presentacion}}</td>
+              <td>{{e.items[0] == null ? '' : e.items[0].precioRegular | currency:'MXN':true:'1.2-2'}}</td>
+              <td>{{e.precioOferta | currency:'MXN':true:'1.2-2'}}</td>
+              <td>{{e.preciazoClub}}</td>
+              <td>{{e.vigencia}}</td>
+              <td>{{e.obs}}</td>
+              <!-- <td></td> -->
+            </tr>   <!-- ******* TR renglones dinamicos *************** -->
+            <!--  </template> -->
+
+            </tbody>
+          </table>
+        </div>
+
+      </div>  <!-- Fin Row 3 -->
+    </div>
+
+    <div class="col-md-2 col-md-offset-8">
+      <button type="button" (click)="onSave()" class="btn btn-primary">
+        <span style="margin-right: 5px" class="glyphicon glyphicon-floppy-save"></span>
+        Grabar
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button type="button" class="btn btn-success">
+        <span style="margin-right: 5px" class="glyphicon glyphicon-ok"></span>
+        Terminar Oferta
+      </button>
+    </div>
+  </div>
+</div>  <!-- Fin container -->

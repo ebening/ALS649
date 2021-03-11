@@ -1,0 +1,109 @@
+<alertModal
+        [idBttn]="'openOfertasAlert'"
+        [success]="util.alertSucces"
+        [info]="util.alertInfo"
+        [danger]="util.alertDanger"
+        [warning]="util.alertWarn"
+        [mensaje]="util.mensajeModal"
+        [titulo]="util.tituloModal"
+        [idmodal]="'ofertasAlert'">
+
+</alertModal>
+<div class="container">
+  <div class="row">
+    <div class="col-md-2" style="margin-top: 10px">
+      <ss-multiselect-dropdown
+        [customTitle]="etService.CATEGORIA_ART">
+
+      </ss-multiselect-dropdown>
+    </div>
+    <div class="col-md-2" style="margin-top: 10px">
+      <ss-multiselect-dropdown
+        [customTitle]="etService.SUB_CATEGO_ART">
+
+      </ss-multiselect-dropdown>
+    </div>
+    <div class="col-md-2" style="margin-top: 10px">
+      <ss-multiselect-dropdown
+        [customTitle]="'Productos'">
+
+      </ss-multiselect-dropdown>
+    </div>
+    <div class="col-md-2" style="margin-top: 10px">
+      <input type="number" class="input-sm" placeholder="Precio Oferta">
+    </div>
+    <div class="col-md-4" style="margin-top: 10px">
+      <input type="text" class="input-sm" placeholder="Observaciones">
+    </div>
+    <div style="margin-top: 10px" class="col-md-2 col-md-offset-6">
+      <input type="number" class="input-sm" placeholder="% Oferta">
+    </div>
+    <div style="margin-top: 10px" class="col-md-4">
+      <div class="col-md-6">
+        <input type="number" class="input-sm" placeholder="Preciazo">
+      </div>
+      <div class="col-md-6">
+        <ss-multiselect-dropdown
+          [customTitle]="'Vigencia PC'">
+
+        </ss-multiselect-dropdown>
+      </div>
+    </div>
+    <div style="margin-top: 15px" class="col-md-12">
+      <div class="panel panel-default">
+        <div class="panel-heading">
+          Ofertas Guardadas
+        </div>
+        <div style="height: 280px; overflow: auto" class="panel-body">
+          <table class="table table-hover">
+            <thead>
+            <tr>
+              <th>{{etService.CATEGORIA_ART}}</th>
+              <th>{{etService.SUB_CATEGO_ART}}</th>
+              <th>Codigo Oficina</th>
+              <th>Precio Oferta</th>
+              <th>Preciazo Club</th>
+              <th>Vigencia Precio Club</th>
+              <th>Ejemplo y Observaciones</th>
+            </tr>
+            </thead>
+            <tbody>
+              <tr style="cursor: pointer" *ngFor="let row of ofertas" (click)="rowSelect(row)" [style.background]="row.isSelected ? 'lightgray' : 'white'">
+                <td>{{categoService.getCategoryById(row.area).nombre}}</td>
+                <td>{{subCategoService.getSubCategoById(row.grupoArt).nombre}}</td>
+                <td>{{row.subSeg}}</td>
+                <td>{{row.precioOferta | currency: 'MXN':true:'1.2-2'}}</td>
+                <td>{{row.preciazoClub}}</td>
+                <td>{{row.vigencia}}</td>
+                <td>{{row.obs}}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
+    </div>
+    <div class="col-md-4 text-center text-info">
+        <div fileDrop class="drop-zone"
+             [ngClass]="{'nv-file-over': hasBaseDropZoneOver}"
+             [options]="options"
+             (fileOver)="fileOver($event)"
+             (onFileDrop)="onFileDrop($event)">
+            Importar desde Excel
+        </div>
+    </div>
+
+    <div class="col-md-2 col-md-offset-4">
+      <button class="btn btn-primary" data-dismiss="modal" (click)="onSave()">
+        <span class="glyphicon glyphicon-floppy-save"></span>
+        Grabar
+      </button>
+    </div>
+    <div class="col-md-2">
+      <button class="btn btn-danger" data-dismiss="modal">
+        <span class="glyphicon glyphicon-remove"></span>
+        Eliminar
+      </button>
+    </div>
+  </div>
+</div>
+

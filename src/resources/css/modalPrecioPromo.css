@@ -1,0 +1,164 @@
+#contenedor{
+    width: 100%;
+    height: 100%;
+    min-width: 200px;
+    font-family: fontNormal;
+    overflow: auto;   /*Barra del div  auto sera automatico*/
+}
+
+#Title{
+    width: 100%;
+    height: 30px;
+    text-align: center;
+    font-weight: bold;
+    font-size: 15px;
+    margin-top: 5px;
+}
+
+#opciones{
+  float: left;
+  width: 50%;
+  height: 45px;
+  margin-top: 5px;
+}
+#opciones div{
+    float: left;
+    margin-left: 15px;
+    margin-bottom: 10px;
+}
+
+#configuracion{
+    width: 100%;
+    height: 98px;
+    margin-top:5px;
+}
+
+#configuracion #vigencia{
+    float: right;
+    margin-left: 20px;
+    height: 100%;
+    width: 350px;
+}
+
+#configuracion #vigencia p{
+    width: 100%;
+    font-size: 12px;
+    text-align: center;
+}
+#configuracion #vigencia table{
+    width: 100%;
+}
+
+#configuracion #vigencia table th{
+    text-align: center;
+}
+
+#configuracion #vigencia table td{
+    text-align: center;
+}
+
+
+
+#configuracion #preofer{
+    float: right;
+    padding-left: 5px;
+    height: 100%;
+    width: 380px;
+    margin-right: 50px;
+}
+#configuracion #preofer p{
+    width: 100%;
+    text-align: center;
+}
+
+#configuracion #preofer table{
+    width: 100%;
+    padding: 0px;
+    margin: 0px;
+    margin-top: -5px;
+}
+
+
+#funciones{
+  float: left;
+  width: 100%;
+  height: auto;
+  margin-top: 5px;
+}
+#funciones #precon{
+    float:left;
+    margin: 10px;
+}
+#funciones #botton{
+    float: right;
+    margin: 10px;
+}
+
+#grid{
+  float: left;
+    margin-top:5px;
+    width: 100%;
+    height: auto;
+}
+
+
+
+/************************chechk************************/
+.checkbox label:after,
+.radio label:after {
+    content: '';
+    display: table;
+    clear: both;
+}
+
+.checkbox .cr,
+.radio .cr {
+    position: relative;
+    display: inline-block;
+    border: 1px solid #a9a9a9;
+    border-radius: .25em;
+    width: 1.3em;
+    height: 1.3em;
+    margin-right: .5em;
+    margin-left: -5px;
+}
+
+.radio .cr {
+    border-radius: 50%;
+}
+
+.checkbox .cr .cr-icon,
+.radio .cr .cr-icon {
+    position: absolute;
+    font-size: .8em;
+    line-height: 0;
+    top: 50%;
+    left: 20%;
+}
+
+.radio .cr .cr-icon {
+    margin-left: 0.04em;
+}
+
+.checkbox label input[type="checkbox"],
+.radio label input[type="radio"] {
+    display: none;
+}
+
+.checkbox label input[type="checkbox"] + .cr > .cr-icon,
+.radio label input[type="radio"] + .cr > .cr-icon {
+    transform: scale(3) rotateZ(-20deg);
+    opacity: 0;
+    transition: all .3s ease-in;
+}
+
+.checkbox label input[type="checkbox"]:checked + .cr > .cr-icon,
+.radio label input[type="radio"]:checked + .cr > .cr-icon {
+    transform: scale(1) rotateZ(0deg);
+    opacity: 1;
+}
+
+.checkbox label input[type="checkbox"]:disabled + .cr,
+.radio label input[type="radio"]:disabled + .cr {
+    opacity: .5;
+}

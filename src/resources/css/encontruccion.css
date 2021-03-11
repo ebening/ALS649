@@ -1,0 +1,12 @@
+#contenedor{
+  width: 100%;
+  font-size: 12px;
+  margin: 2px;
+
+  background-image: url(resources/images/en-reparacion.jpg);
+  background-repeat: no-repeat;
+  max-width: 99.9%;
+  height: 98%;
+
+  background-size: 100% 100%;
+}

@@ -1,0 +1,9 @@
+@font-face{
+	font-family: fontPie;
+	src: url("../fonts/tcm.ttf");
+}
+
+@font-face{
+	font-family: fontNormal;
+	src: url("../fonts/MyriadPro-Regular.otf");
+}

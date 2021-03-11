@@ -1,0 +1,36 @@
+<!--  Comienza Modal * -->
+<div class="container">
+<button attr.id="{{idBttn}}" [hidden]="true" name="bttnOpenModal" data-toggle="modal" attr.data-target="#{{idmodal}}" ></button>
+<div attr.id="{{idmodal}}" class="modal fade" role="dialog">
+  <div class="modal-dialog" id="divModalContentPapa">
+    <!-- Modal content-->
+    <div class="modal-content" id="divModalContentHijo">
+      <div class="modal-header" id="divEnca">
+        <!-- * *  Manera personalizada del modal no cambiar  ******** * -->
+        <div class="imgheader">
+          <h4 class="modal-title">{{titulo}}</h4>
+        </div>
+        <div class="imgheadercodo"> </div>
+
+        <div class="divclose">
+          <button type="button" class="close" data-dismiss="modal">&times;</button>
+        </div>
+      </div>
+      <div
+        [class.alert-warning]="warning"
+        [class.alert-success]="success"
+        [class.alert-info]="info"
+        [class.alert-danger]="danger"
+        [class.modal-body]="true">
+
+        {{mensaje}}
+
+      </div>
+      <div class="modal-footer" id="divPie">
+        <button type="button" class="btn btn-default" data-dismiss="modal">Cerrar</button>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!--  Fin Comienza Modal * -->

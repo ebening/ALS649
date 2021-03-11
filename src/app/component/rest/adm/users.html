@@ -1,0 +1,62 @@
+<profilesModal
+        [danger]="false"
+        [info]="false"
+        [success]="false"
+        [warning]="false"
+        [idBttn]="'bttnOpenProfileModal'"
+        [idmodal]="'profileModal'">
+</profilesModal>
+<div class="container">
+    <div class="row">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                Administracion de Usuarios
+            </div>
+            <div style="height: 100%" class="panel-body">
+                <div class="col-md-12">
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-danger">
+                            <span class="fa fa-user-times fa-lg"></span>
+                            Eliminar
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary">
+                            <span class="glyphicon glyphicon-pencil"></span>
+                            Editar
+                        </button>
+                    </div>
+                    <div class="col-md-2">
+                        <button type="button" class="btn btn-primary">
+                            <span class="fa fa-user-plus fa-lg"></span>
+                            Nuevo Usuario
+                        </button>
+                    </div>
+                    <div class="col-md-2 col-md-offset-4">
+                        <button (click)="onProfilesBttn()" type="button" class="btn btn-success">
+                            <span class="fa fa-user-secret fa-lg"></span>
+                            Perfiles
+                        </button>
+                    </div>
+
+                </div>
+                <div id="divTable" class="col-md-12">
+                    <table class="table table-hover">
+                        <thead>
+                        <tr>
+                            <th>Nombre</th>
+                            <th>Apellido Paterno</th>
+                            <th>Apellido Materno</th>
+                            <th>Correo</th>
+                            <th>Activo</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,33 @@
+<div [@visibilityChanged]="visibility" class="row">
+  <div style="margin-top: 10px" class="col-md-12">
+    <div class="panel panel-default">
+      <div class="panel-heading">
+        <button type="button" class="btn btn-default" (click)="backButtonAction()">
+          <span class="fa fa-arrow-left fa-lg"></span>
+          Regresar
+        </button>
+        <button (click)="onBackPageBttn()" [disabled]="pageIndex == 0" class="btn btn-default">
+          <span class="fa fa-step-backward"></span>
+        </button>
+        <span class="text-primary pageTitle">{{paginas[pageIndex].nameRow}}</span>
+        <button [disabled]="pageIndex == totalPages" (click)="onForwardPageBttn()" class="btn btn-default">
+          <span class="fa fa-step-forward"></span>
+        </button>
+      </div>
+      <div class="panel-body">
+        <div [dragula]="'first-bag'" [dragulaModel]="paginas[pageIndex].rows" class="col-md-10 col-md-offset-1">
+          <div *ngFor="let r of paginas[pageIndex].rows" align="center" class="col-md-3 dragula">
+            <img src="{{r.imageURL}}" class="img-thumbnail" alt="Imagen articulo">
+            <div class="col-md-6">
+              {{r.subSeg + '-' + r.items[0].descripcion}}
+            </div>
+            <div class="col-md-6 text-right">
+              {{r.precioOferta | currency: 'MXN':true:'1.2-2'}}
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+

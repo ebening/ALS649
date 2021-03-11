@@ -1,0 +1,158 @@
+/*
+    Create by: L.i. Manrique Vera;
+    date: 23/11/2016;
+*/
+
+.contenedor{
+    /*height: 100vh;*/
+    display: flex;
+    flex-direction: column;
+
+    font-family: fontNormal;
+    font-size: 10px;
+    font-size: 1em;
+}
+
+.header{
+    width: 100%;
+    height: auto;
+    font-size: 9px;
+    font-size: 0.9em;
+    background:#e9e9e8;
+}
+
+
+.body{
+    width: 100%;
+    height: 100%;
+}
+
+.rowbody{
+
+}
+
+.colAlto{
+
+}
+
+.footer{
+    width: 100%;
+    height: auto;
+}
+
+.nombrePantalla{
+    font-family: fontPie;
+    font-size: 10px;
+    font-size: 1.0em;
+}
+
+.version{
+    font-family: fontPie;
+    font-size: 10px;
+    font-size: 1.0em;
+}
+
+
+
+/******** Tablet, 768 and up ********/
+@media (min-width: 768px) {
+    .contenedor{
+        /*height: 97vh;*/
+     /*   position: fixed; */
+        width: 100%;
+        height: 100%;
+        left: 0;
+        top: 0;
+        z-index: 10;
+        display: flex;
+        flex-direction: column;
+
+        font-family: fontNormal;
+        font-size: 10px;
+        font-size: 1.0em;
+    }
+    .header{
+        width: 100%;
+        height: auto;
+        font-size: 11px;
+        font-size: 1.1em;
+    }
+
+    .logo{
+        background-image: url(resources/images/principal/odmaster.png);
+        width: 201px;
+        height: 60px;
+        margin-left: 5px;
+    }
+
+    .barra{
+        height: 15px;
+        width: 100%;
+
+      background: #ab1d2a; /* Old browsers */
+      background: -moz-linear-gradient(top, #B92328 0%, #c3c3c3 50%); /* FF3.6-15 */
+      background: -webkit-linear-gradient(top, #B92328 0%,#c3c3c3 80%); /* Chrome10-25,Safari5.1-6 */
+      background: linear-gradient(to bottom, #B92328 0%,#c3c3c3 80%); /* W3C, IE10+, FF16+, Chrome26+, Opera12+, Safari7+ */
+      filter: progid:DXImageTransform.Microsoft.gradient( startColorstr='#ababab', endColorstr='#ffffff',GradientType=0 ); /* IE6-9 */
+    }
+    .rowbody{
+        position: relative;
+        margin: 0px;
+        padding: 0px;
+        width: 100%;
+        height: 100%;
+    }
+    .colAlto{
+        height: 100%;
+    }
+    .footer{
+        width: 100%;
+        height: 38px;
+        background-image: url(resources/images/principal/pie.png);
+        background-repeat: repeat-x;
+    }
+    .nombrePantalla{
+        text-align: right;
+        font-family: fontPie;
+        font-size: 12px;
+        font-size: 1.2em;
+    }
+    .version{
+        font-family: fontPie;
+        font-size: 12px;
+        font-size: 1.2em;
+    }
+}
+
+/******** Desktop, 992 and up ********/
+@media (min-width: 991px) {
+    .contenedor{
+        position: absolute;
+        /*  height: 100vh; */
+        height: 100%;
+        width: 100%;
+        z-index: 0;
+        overflow: auto;
+    }
+    .header{
+        font-size: 9px;
+        font-size: 10pt;
+    }
+}
+
+/******** Large devices (large desktop, 1200 and up) ********/
+@media (min-width: 1200px) {
+        .contenedor{
+           /* position: absolute;
+            height: 100vh; */
+            height: 100%;
+            width: 100%;
+            z-index: 0;
+            overflow: auto;
+        }
+
+        .body{
+            display: flex;
+            flex-direction: row;
+        }
+}

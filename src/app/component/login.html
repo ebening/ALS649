@@ -1,0 +1,46 @@
+<alertModal
+  [idmodal]="'loginAlert'"
+  [idBttn]="'openLoginAlert'"
+  [danger]="true"
+  [info]="false"
+  [success]="false"
+  [warning]="false"
+  [mensaje]="mensajeAlert"
+  [titulo]="tituloAlert">
+</alertModal>
+<div class="contenedor">
+  <div class="header">
+    <div class="row">
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="logo"></div>
+      </div>
+      <div class="col-xs-12 col-md-6 col-lg-6">
+        <div class="row">
+          <div class="col-xs-12 col-md-8 col-md-offset-4  col-lg-3 col-lg-offset-9">
+            <span> {{clock | async | date: 'dd / MM / yyyy - HH:mm:ss'}} </span>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="barra"></div>
+  </div>
+  <div class="body">
+    <form>
+      <h4> Iniciar Sesion </h4>
+      <input class="name" type="text" placeholder="Usuario" [(ngModel)]="model.username" name="loginId" >
+      <input class="pw" type="password" placeholder="Contraseña" [(ngModel)]="model.pwd" name="loginPwd" >
+      <li><a href="#">Olvidaste tu Contraseña?</a></li>
+      <input class="button" type="button" value="Ingresar" (click)="login()">
+    </form>
+  </div>
+  <div class="footer">
+    <div class="row">
+      <div class="col-xs-12 col-lg-3 version">
+        Version 2.0
+      </div>
+      <div class="col-xs-12 col-lg-offset-6 col-lg-3 nombrePantalla">
+        Iniciar Sesion
+      </div>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,23 @@
+/**
+    Hoja de Estilos para la pantalla de Administracion de Usuarios
+ */
+
+.container{
+    height: 100%;
+}
+
+.row{
+    height: 100%;
+}
+
+.panel{
+    height: 100%;
+}
+
+button{
+    width: 100%;
+}
+
+#divTable {
+    margin-top: 20px;
+}
